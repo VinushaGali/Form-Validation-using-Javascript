@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Login</title>
+        <link rel="stylesheet" href="ass3.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script>
+            function log() {
+                var email = document.forms.login.mail.value;                           
+                var pass = document.forms.login.pword.value;
+                if(email ==""){
+                    window.alert("please enter your email");
+                    return false;
+                }
+                if(email !== "abc@gmail.com"){
+                    window.alert("we are sorry! This e-mail is not registered with us!");
+                    return false;
+                }
+                if(pass ==""){
+                    window.alert("please enter your password");
+                    return false;
+                }
+                if(pass !== "Abcdef@1"){
+                    window.alert("Incorrect Password");
+                    return false;
+                }
+                window.open('schedule1.html');
+                return true;
+            }
+        </script>
+    </head>
+    <body>
+            <header>
+                <h1 id="title">GREEN MAVERICKS</h1>
+            </header>
+            <center><h2>LOGIN</h2></center>
+        <form name="login" method="post">
+            <center>
+            <table>
+                <tr>
+                    <th>Email</th>
+                    <th></th>
+                    <td><input type="email" name="mail"></td>
+                </tr>
+                <tr>
+                    <th>Password</th>
+                    <th></th>
+                    <td><input type="password" name="pword"></td>
+                </tr>
+            </table>
+        </center>
+            <center><button onclick="log()">Login</button></center>
+        </form>
+        <br><br>
+        <center>Don't have an account?<a href="reg.html">Register Now!</a></center>
+    </body>
+</html>

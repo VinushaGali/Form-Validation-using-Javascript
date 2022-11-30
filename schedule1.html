@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Schedule</title>
+        <link rel="stylesheet" href="ass3.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="text/javascript">
+            function Meeting() {
+                var instore = document.getElementById("instore");
+                var places = document.getElementById("places");
+                places.style.display = instore.checked ? "block" : "none";
+                var online = document.getElementById("online");
+                var modes = document.getElementById("modes");
+                modes.style.display = online.checked ? "block" : "none";
+            }
+        </script>
+    </head>
+    <body>
+        <header>
+            <h1 id="title">GREEN MAVERICKS</h1>
+            <div id="menu">
+                <a href="login.html" class="menu">LOGOUT</a>
+            </div>
+        </header>
+        <center><h2>SCHEDULE A MEETING WITH US</h2></center>
+        <center>
+        <div class="form1">
+            <form>
+            <table id="details">
+                <tr>
+                    <th>Name &nbsp;</th>
+                    <td><input type="text" ></td>
+                </tr>
+                <tr>
+                    <th>Contact Number &nbsp;</th>
+                    <td><input type="number" required></td>
+                </tr>
+                <tr>
+                    <th>Date</th>
+                    <td><input type="date" required></td>
+                </tr>
+                <tr>
+                    <th>Choose Topics</th>
+                    <td><input type="checkbox" id="soilmix" name="soilmix" value="Bike">
+                        <label for="soilmix"> Soil Mix </label><br>
+                        <input type="checkbox" id="indoor" name="indoor" value="Car">
+                        <label for="indoor"> In-Door Plant Care</label><br>
+                        <input type="checkbox" id="orgpest" name="orgpest" value="Boat">
+                        <label for="orgpest"> Organic Pesticides</label><br>
+                        <input type="checkbox" id="vermi" name="vermi" value="vermi">
+                        <label for="vermi"> Vermicompost at Home</label><br><br></td>
+                </tr>
+                <tr>
+                    <th><span>which mode of Meeting would you like to schedule?</span></th>
+                        <td>
+                        <label for="online">
+                        <input type="radio" id="online" name="type" onclick="Meeting()" />Online
+                        </label>
+                        <label for="instore">
+                        <input type="radio" id="instore" name="type" onclick="Meeting()" />In-Store
+                        </label>
+                    </td>
+                </tr> 
+            </table><br>
+            <div id="places" style="display: none">
+                <label for="place">Select Place</label>
+                         <select name="place" id="place">
+                         <option value="Arlington">Arlington</option>
+                         <option value="Dallas">Dallas</option>
+                         <option value="Irving">Irving</option>
+                         <option value="Plano">Plano</option>
+                         </select>
+             </div> 
+             <div id="modes" style="display: none">
+                <label for="mode">Select from below Options</label>
+                        <select name="mode" id="mode">
+                            <option value="Recorded Videos">Recorded Videos</option>
+                            <option value="Live Demos">Live Demos</option>
+                        </select>
+             </div>
+             <br><br>
+             <center><textarea rows="4" cols="50">Enter your message if any..(optional)</textarea></center>
+            </div>
+            
+            <br>
+            <center><button id= "button1"><a href="response.html" class="buttons">Schedule</a></button></center>
+        </form>
+        </div>
+        </center>
+        <footer style="position:absolute; bottom:0px;">
+            <center><h3>Opening Hours: Monday to Saturday, 9:00AM to 6:00PM</h3></center>
+        </footer>
+    </body>
+</html>
+    </body>

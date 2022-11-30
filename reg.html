@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Register</title>
+        <link rel="stylesheet" href="ass3.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script>
+            function valid() {
+                var fname = document.forms.registration.fname.value;
+                var lname = document.forms.registration.lname.value;
+                var email = document.forms.registration.mail.value;
+                var phone = document.forms.registration.phone.value;
+                var pass = document.forms.registration.pword.value;
+                var cpass = document.forms.registration.conpword.value;
+                var addr = document.forms.registration.address.value;
+                var validEmail=/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/g;                            
+                var validName =/^[A-Za-z]+$/;
+                var validPhone1=/^\(\d{3}\)-\d{3}-\d{4}$/;    
+                var validPhone2=/^\d{3}-\d{3}-\d{4}$/;
+                var validPhone3=/^\d{6}-\d{4}$/;
+                var validPass=/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Z][A-za-z\d@$!&]{8,}$/;
+
+                if((fname == "") || (lname == "") || (email == "") || (phone == "") || (pass == "") || (addr == "") || (cpass == "")){
+                    window.alert("Please fill all the require fields");
+                    return false;
+                }
+                if(!validName.test(fname)) {
+                    window.alert("First Name cannot contain Numbers or special characters!");
+                    return false;
+                }
+
+                if(!validName.test(lname)) {
+                    window.alert("Last Name cannot contain Numbers or special characters!");
+                    return false;
+                }
+                 
+                if(!validEmail.test(email)) {
+                    window.alert("Please enter a valid e-mail address.");
+                    return false;
+                }
+                
+                if((!validPhone1.test(phone)) && (!validPhone2.test(phone)) && (!validPhone3.test(phone))) {
+                    window.alert("Invalid Phone Number.");
+                    return false;
+                }
+
+                if(!validPass.test(pass)) {
+                    window.alert("Password must contain the following:\n A password should be alphanumeric.\n First letter of the password should be capital.\n Password must contain a special character (@, $, !, &, etc).\nPassword length must be greater than 8 characters.\nThe password fields should not be empty");
+                    return false;    
+                }
+
+                if(cpass != pass){
+                    window.alert("Passwords not matched!");
+                    return false;
+                }
+                window.open('login.html');
+                return true;
+                
+            }
+        </script>
+    </head>
+    <body>
+            <header>
+                <h1 id="title">GREEN MAVERICKS</h1>
+            </header>
+            <center><h2>REGISTER NOW</h2></center>
+        <form name="registration" method="post">
+            <center>
+            <table>
+                <tr>
+                    <th>First Name</th>
+                    <td><input type="text" name="fname"></td>
+                </tr>
+                <tr>
+                    <th>Last Name</th>
+                    <td><input type="text" name="lname"></td>
+                </tr>
+                <tr>
+                    <th>Email</th>
+                    <td><input type="email" name="mail"></td>
+                </tr>
+                <tr>
+                    <th>Phone Number</th>
+                    <td><input type="text" name="phone"></td>
+                </tr>
+                <tr>
+                    <th>Address</th>
+                    <td><input type="text" name="address" placeholder="St.Name,apt#,City,St,zip"></td>
+                </tr>
+                <tr>
+                    <th>Password</th>
+                    <td><input type="password" name="pword"></td>
+                </tr>
+                <tr>
+                    <th>Confirm Password</th>
+                    <td><input type="password" name="conpword"></td>
+                </tr>
+            </table>
+            </center>
+            <br><br>
+            <center><button onclick="valid()">Register</button></center>
+        </form>
+        <center>Already have an account?<a href="login.html">Login</a></center>
+
+        <footer style="position:absolute; bottom:0px;">
+            <center><h3>Opening Hours: Monday to Saturday, 9:00AM to 6:00PM</h3></center>
+        </footer>
+    </body>
+</html>
